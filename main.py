@@ -9,7 +9,10 @@ from src.scenes.game import SceneGame
 # Inicialização do Pygame
 pygame.init()
 
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+screen = pygame.display.set_mode()
+SCREEN_WIDTH, SCREEN_HEIGHT = screen.get_size()
+PANEL_HEIGHT = SCREEN_HEIGHT
+PANEL_WIDTH = SCREEN_WIDTH // 5
 pygame.display.set_caption("Jogo com Hexagon Tiles")
 
 src_img = SourceImages()

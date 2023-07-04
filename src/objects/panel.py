@@ -1,6 +1,29 @@
 import pygame
-from tiles import Hexagon
+from .tiles import Hexagon
 from ..utils import *
+
+
+
+class Panel:
+
+    def __init__(self,  size: tuple(float, float), 
+                 position:tuple(int, int) = (-1, -1), 
+                 type=None, 
+                 color:tuple(int, int, int) = (255,255,255)):
+
+        self.x, self.y = position
+        self.width, self.height = size
+        self.color = color
+
+        if position == (-1,-1):
+            self.x = (SCREEN_WIDTH //2)  - (self.width // 2)
+            self.y = (SCREEN_HEIGHT //2)  - (self.height // 2)
+
+    def set_type(self, type:str):
+        self.type = type
+
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.width, self.height))
 
 
 
